@@ -9,7 +9,9 @@ const forecast = (lat, lon, callback) => {
             callback("Unable to find location. Try again", undefined)
         } else {
             const ref = body.current
-            callback(undefined, `There is ${ref.weather_descriptions[0]}. It is currently ${ref.temperature} and it feels like ${ref.feelslike}`)
+            const out = `It is ${ref.weather_descriptions[0]}. It is currently ${ref.temperature} as observed on ${ref.observation_time}. 
+            It feels like ${ref.feelslike} and the humidity is ${ref.humidity}.`
+            callback(undefined, out)
         }
     })
 
